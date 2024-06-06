@@ -1,5 +1,8 @@
 package com.example.empowertakehome
 
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
+import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -18,12 +21,11 @@ class BeneficiariesAdapter(private val onItemClick: (Int) -> Unit) :
     private var data: List<Beneficiary> = listOf()
     private var expandedPosition = RecyclerView.NO_POSITION
 
-    //Set the data
+    // Set the data
     fun setData(newData: List<Beneficiary>) {
         data = newData
         notifyDataSetChanged()
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
@@ -31,21 +33,51 @@ class BeneficiariesAdapter(private val onItemClick: (Int) -> Unit) :
         // Create the root container
         val container = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            layoutParams = LinearLayout.LayoutParams(
+            layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
             setPadding(16, 16, 16, 16)
+            setBackgroundColor(Color.WHITE)
+
+            // Set margin
+            val layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply {
+                setMargins(8, 0, 8, 20) // Set margins for spacing between items
+            }
+            this.layoutParams = layoutParams
+
+            // Set border
+            background = GradientDrawable().apply {
+                setColor(Color.WHITE)
+                setStroke(2, Color.BLACK) // Set the border width and color
+            }
         }
 
-        // Create TextViews for name, type, code, and hiddenInfo
-        val nameTextView = TextView(context)
-        val typeTextView = TextView(context)
-        val codeTextView = TextView(context)
-        val hiddenSSN = TextView(context)
-        val hiddenDOB= TextView(context)
-        val hiddenPhoneNumber = TextView(context)
-        val hiddenAddress = TextView(context)
+        // Create TextViews for values
+        val nameTextView = TextView(context).apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP,20f)
+        }
+        val typeTextView = TextView(context).apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP,20f)
+        }
+        val codeTextView = TextView(context).apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP,20f)
+        }
+        val hiddenSSN = TextView(context).apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP,20f)
+        }
+        val hiddenDOB = TextView(context).apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP,20f)
+        }
+        val hiddenPhoneNumber = TextView(context).apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP,20f)
+        }
+        val hiddenAddress = TextView(context).apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP,20f)
+        }
 
         // Add TextViews to the container
         container.addView(nameTextView)

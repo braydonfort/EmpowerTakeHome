@@ -1,6 +1,7 @@
 package com.example.empowertakehome
 
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -44,7 +45,9 @@ class MainActivity : ComponentActivity() {
         )
         rootView.orientation = LinearLayout.VERTICAL
 
-        val titleTextView = TextView(this)
+        val titleTextView = TextView(this).apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP,30f)
+        }
         titleTextView.text = "Beneficiaries List"
         titleTextView.gravity = Gravity.CENTER
         rootView.addView(titleTextView)
