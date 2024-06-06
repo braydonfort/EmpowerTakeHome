@@ -1,5 +1,9 @@
 package com.example.data.models
 
+/**
+ * Beneficiary data class
+ * Data class representing a beneficiary
+ */
 data class Beneficiary(
     val lastName: String,
     val firstName: String,

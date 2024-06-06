@@ -11,6 +11,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * MainActivityViewModel
+ * View model for main activity
+ */
 
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(private val getBeneficiariesUseCase: GetBeneficiariesUseCase): ViewModel() {
@@ -18,6 +22,9 @@ class MainActivityViewModel @Inject constructor(private val getBeneficiariesUseC
     val _beneficiariesList: LiveData<List<Beneficiary>>
         get() = beneficiariesList
 
+    /**
+     * Set List function sets the public beneficiaries List
+     */
      fun setList(){
          beneficiariesList.value = getBeneficiariesUseCase.execute()
     }

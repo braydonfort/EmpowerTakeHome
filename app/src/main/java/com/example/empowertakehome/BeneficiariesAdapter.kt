@@ -7,16 +7,23 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.data.models.Beneficiary
 
+/**
+ * BeneficiariesAdapter
+ * Recycler View Adapter for Beneficiaries List in MainActivity
+ */
+
 class BeneficiariesAdapter(private val onItemClick: (Int) -> Unit) :
     RecyclerView.Adapter<BeneficiariesAdapter.ViewHolder>() {
 
     private var data: List<Beneficiary> = listOf()
     private var expandedPosition = RecyclerView.NO_POSITION
 
+    //Set the data
     fun setData(newData: List<Beneficiary>) {
         data = newData
         notifyDataSetChanged()
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
