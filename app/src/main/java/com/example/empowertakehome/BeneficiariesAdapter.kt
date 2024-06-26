@@ -15,7 +15,7 @@ import com.example.data.models.Beneficiary
  * Recycler View Adapter for Beneficiaries List in MainActivity
  */
 
-class BeneficiariesAdapter(private val onItemClick: (Int) -> Unit) :
+class BeneficiariesAdapter() :
     RecyclerView.Adapter<BeneficiariesAdapter.ViewHolder>() {
 
     private var data: List<Beneficiary> = listOf()
@@ -102,7 +102,6 @@ class BeneficiariesAdapter(private val onItemClick: (Int) -> Unit) :
         holder.itemView.setOnClickListener {
             expandedPosition = if (isExpanded) RecyclerView.NO_POSITION else position
             notifyDataSetChanged()
-            onItemClick(position)
         }
     }
 

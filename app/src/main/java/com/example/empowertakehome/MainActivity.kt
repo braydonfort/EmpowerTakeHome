@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
             ViewGroup.LayoutParams.MATCH_PARENT
         )
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val adapter = BeneficiariesAdapter{}
+        val adapter = BeneficiariesAdapter()
         recyclerView.adapter = adapter
         rootView.addView(recyclerView)
 
